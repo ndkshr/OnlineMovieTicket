@@ -22,12 +22,13 @@
             </tr>
             <tr style="background-color:lightgrey;">
                 <td><b>Movie code</b></td>
-                <td><b>Movie Name</b></td>
+                <td><b>Date</b></td>
                 <td><b>Show</b></td>
                 <td><b>Seats Left</b></td>                
             </tr>
             <%
                 int count = 0;
+                int seats;
                 String color = "#F9EBB3";
                 if (request.getAttribute("searchResult") != null) {
                     ArrayList al = (ArrayList) request.getAttribute("searchResult");
@@ -36,14 +37,21 @@
                     while (itr.hasNext()) {
                         count ++;
                         ArrayList movies = (ArrayList) itr.next();
+                        
             %>
             <tr style="background-color:<%=color%>;">
                 <td><%=movies.get(0)%></td>
                 <td><%=movies.get(1)%></td>
                 <td><%=movies.get(2)%></td>
                 <td><%=movies.get(3)%></td>
-            <input type="hidden" name="dateMovie" value="<%=request.getAttribute("dateMovie")%>">
+                <input type="hidden" name="dateMovie" value="<%=request.getAttribute("dateMovie")%>">
+                <%if(Integer.parseInt((String)movies.get(3))>0)
+                {%>
                 <td><button type="submit" name="bookCode" value="<%=movies.get(0)%>">Book Ticket</button></td>
+                <%}
+                else{ %>
+                <td>House Full</td>
+                <%}%>
             </tr>
             <%
                     }
