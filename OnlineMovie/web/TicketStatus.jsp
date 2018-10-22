@@ -13,14 +13,9 @@
     </head>
     <body>
         <h1>TicketStatus</h1>
-        <form>
+        <form method="post" action="TicketStatus">
             <input type="text" name="ticketID" placeholder="Ticket ID">
             <input type="text" name="ticketName" placeholder="Name on the ticket">
-            <input type="date" name="ticketDate" placeholder="Date on the ticket"><br/>
-            <input type="radio" name="ticketTime" value="mrng" > Morning Show<br/>
-            <input type="radio" name="ticketTime" value="noon" > Noon Show<br/>
-            <input type="radio" name="ticketTime" value="even" > Evening Show<br/>
-            <input type="text" name="movieCode" placeholder="Movie Code">
             <input type="submit" value="Check Status">
         </form>
     </body>

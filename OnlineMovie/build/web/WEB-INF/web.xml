@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
     <servlet>
         <servlet-name>SearchMovie</servlet-name>
         <servlet-class>SearchMovie</servlet-class>
@@ -16,6 +21,10 @@
         <servlet-name>BookingConfirm</servlet-name>
         <servlet-class>BookingConfirm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CancelTicket</servlet-name>
+        <servlet-class>CancelTicket</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchMovie</servlet-name>
         <url-pattern>/SearchMovie</url-pattern>
@@ -31,6 +40,10 @@
     <servlet-mapping>
         <servlet-name>BookingConfirm</servlet-name>
         <url-pattern>/BookingConfirm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelTicket</servlet-name>
+        <url-pattern>/CancelTicket</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
