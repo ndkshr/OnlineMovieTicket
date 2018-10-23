@@ -9,22 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Search Results</h1>
+        <div class="container">
+        <h1>Movies on <%= request.getAttribute("dateMovie")%></h1>
         <form method="post" action="BookTicket">
-         <table style="border:1px solid #000000;">
+            <table class="table table-striped">
+
             <tr>
-                <td colspan=4 align="center"
-                    style="background-color:#FA2379">
-                    <b>Movies on <%= request.getAttribute("dateMovie")%></b></td>
-            </tr>
-            <tr style="background-color:lightgrey;">
                 <td><b>Movie code</b></td>
                 <td><b>Date</b></td>
                 <td><b>Show</b></td>
-                <td><b>Seats Left</b></td>                
+                <td><b>Seats Left</b></td>  
+                <td></td>
             </tr>
             <%
                 int count = 0;
@@ -39,7 +48,7 @@
                         ArrayList movies = (ArrayList) itr.next();
                         
             %>
-            <tr style="background-color:<%=color%>;">
+            <tr>
                 <td><%=movies.get(0)%></td>
                 <td><%=movies.get(1)%></td>
                 <td><%=movies.get(2)%></td>
@@ -47,11 +56,10 @@
                 <input type="hidden" name="dateMovie" value="<%=request.getAttribute("dateMovie")%>">
                 <%if(Integer.parseInt((String)movies.get(3))>0)
                 {%>
-                <td><button type="submit" name="bookCode" value="<%=movies.get(0)%>">Book Ticket</button></td>
+                <td><button type="submit" name="bookCode" value="<%=movies.get(0)%>" class="btn btn-info">Book Ticket</button></td>
                 <%}
                 else{ %>
-                <td>House Full</td>
-                <%}%>
+<td><button type="button" class="btn btn-danger">House Full</button></td>                <%}%>
             </tr>
             <%
                     }
@@ -59,12 +67,16 @@
                 if (count == 0) {
             %>
             <tr>
-                <td colspan=4 align="center"
-                    style="background-color:#eeffee"><b>Sorry No movies found..</b></td>
+                <td><b>Sorry No movies found..</b></td>
             </tr>
             <%            }
             %>
         </table>
        </form>
+        </div>
+        
+        <div class="container">
+            <a href="index.jsp"><button type="button" class="btn btn-default">Back to home</button></a>            
+        </div>
     </body>
 </html>

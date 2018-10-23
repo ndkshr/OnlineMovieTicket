@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/java/javaProjects/OnlineMovie/web/index.html</file>
-            <file>file:/F:/java/javaProjects/OnlineMovie/web/TicketStatus.jsp</file>
+            <file>file:/F:/java/javaProjects/OnlineMovie/web/SearchResult.jsp</file>
+            <file>file:/F:/java/javaProjects/OnlineMovie/web/WEB-INF/web.xml</file>
+            <file>file:/F:/java/javaProjects/OnlineMovie/src/java/CancelTicket.java</file>
+            <file>file:/F:/java/javaProjects/OnlineMovie/src/java/TicketStatus.java</file>
+            <file>file:/F:/java/javaProjects/OnlineMovie/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>
