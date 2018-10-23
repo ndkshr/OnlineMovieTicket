@@ -72,10 +72,18 @@ public class TicketStatus extends HttpServlet {
             String movieName = movieNameSet.getString(1);
             
             out.println("<head>");
-            out.println("<title>Servlet TicketStatus</title>");            
+            out.println("<title>Servlet TicketStatus</title>");    
+            out.println("<!-- Latest compiled and minified CSS -->\n" +
+"        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" +
+"\n" +
+"        <!-- jQuery library -->\n" +
+"        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
+"\n" +
+"        <!-- Latest compiled JavaScript -->\n" +
+"        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
             out.println("</head>");
             out.println("<body>");
-            
+            out.println("<div class='container-fluid'>");
             out.println("<form method='post' action='CancelTicket'>");
             out.println("<h1>Name :: " + ticketName + "</h1>");
             out.println("<h1>Ticket ID :: " + ticketID + "</h1>");
@@ -83,14 +91,15 @@ public class TicketStatus extends HttpServlet {
             
             out.println("<input type='hidden' name='ticketID' value='"+ ticketID +"'>");
             
-            out.println("<a href='index.html'><button type='button'>Go Back</button></a>");
-            out.println("<button type='submit'>Cancel Ticket</button>");
+            out.println("<a href='index.jsp'><button type='button' class='btn btn-default'>Go Back</button></a>");
+            out.println("<button type='submit' class='btn btn-danger'>Cancel Ticket</button>");
             
             out.println("</form>");
             }
             else{
                 out.println("Invalid ticket details!!");
             }
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         } catch (ClassNotFoundException | SQLException ex) {

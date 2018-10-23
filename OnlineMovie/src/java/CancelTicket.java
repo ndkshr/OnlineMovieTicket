@@ -53,16 +53,31 @@ public class CancelTicket extends HttpServlet {
             Connection conn=getConnection();
             Statement stmt=conn.createStatement();
             int result1 = stmt.executeUpdate("delete from movietickets where ticketID='"+ticketID+"'");
-            int result2 = stmt.executeUpdate("update movieshows set movieSeats=movieSeats-1 where movieCode='"+(movieCode)+"' and movieDate='"+(dateTicket)+"' and movieTime='"+(timeTicket)+"'");
+            int result2;
+            if(result1==1)
+            result2 = stmt.executeUpdate("update movieshows set movieSeats=movieSeats-1 where movieCode='"+(movieCode)+"' and movieDate='"+(dateTicket)+"' and movieTime='"+(timeTicket)+"'");
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            
+            out.println("<!-- Latest compiled and minified CSS -->\n" +
+"        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" +
+"\n" +
+"        <!-- jQuery library -->\n" +
+"        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
+"\n" +
+"        <!-- Latest compiled JavaScript -->\n" +
+"        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>");
+            
             out.println("<title>Servlet CancelTicket</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<div class='container-fluid'>");
             out.println("<h1>Cancelled Ticket :: " + ticketID + "</h1>");
-            out.println("<h3>"+ result1 + " -- " + result2 +"</h3>");
+            //out.println("<h3>"+ result1 + " -- " + result2 +"</h3>");
+            out.println("<a href='index.jsp'><button class='btn btn-default'>Home Page</button></a>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
